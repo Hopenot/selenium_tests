@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.smoke
 def test_create_new_customer_account(account_page):
     account_page.open_by_url('customer/account/create/')
     account_page.scroll()
@@ -17,6 +21,7 @@ def test_required_fields(account_page):
     account_page.hint_for_required_fields_is_displayed('This is a required field.')
 
 
+@pytest.mark.smoke
 def test_fields_validation(account_page):
     account_page.open_by_url('customer/account/create/')
     account_page.fill_email('abcABC')
